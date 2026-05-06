@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,128 +9,60 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Amgen
 providerId: amgen
-publisherName: Amgen
-serviceCategory: API
+publisherName: Amgen Inc.
+serviceCategory: Biopharmaceutical
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
+  - FinOps
+  - FOCUS
   - Biotechnology
   - Biopharmaceutical
-  - Oncology
-  - Inflammation
-  - Cardiovascular
-  - Rare Disease
-  - Biosimilars
-  - Life Sciences
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Amgen API surface. Provides a FOCUS-aligned mapping for
-  cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: >-
+  FOCUS-aligned FinOps placeholder for Amgen. Amgen has no public API metered
+  billing surface; commercial spend on Amgen relates to therapy procurement
+  through GPOs, distributors, and payers, which sits outside API FinOps.
+notes: >-
+  No public API billing surface.
+sources:
+  - https://www.amgen.com
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Not Applicable
+  billingFrequency: Not Applicable
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: Amgen
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Biopharmaceutical
   ProviderName: Amgen
-  PublisherName: Amgen
-  InvoiceIssuerName: Amgen
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Amgen Inc.
+  InvoiceIssuerName: Amgen Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
   - name: api_requests
-    description: Count of billable API requests
+    description: Placeholder; not billed as a developer line item
     unit: request
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
       - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Amgen Website
-    baseURL: https://www.amgen.com
-    tags:
-      - Biotechnology
-      - Biopharmaceutical
-      - Life Sciences
-    serviceName: Amgen Website
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+principles:
+  - name: Visibility
+    description: >-
+      No Amgen-issued developer telemetry. Therapy spend visibility lives in
+      payer / distributor systems.
+  - name: Allocation
+    description: >-
+      Allocate Amgen-related costs through procurement and clinical operations,
+      not API consumer tags.
+  - name: Optimization
+    description: >-
+      Optimization levers (formulary, prior auth, biosimilar substitution) are
+      outside developer scope.
+  - name: Accountability
+    description: >-
+      Budget ownership sits with pharmacy, clinical, and procurement leaders.
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
