@@ -94,6 +94,12 @@ common:
         description: Global clinical research network conducting Phase I through Phase III trials across therapeutic areas with AI-optimized trial design.
       - name: Amgen Biosimilars
         description: Portfolio of biosimilar medicines offered through partnerships with healthcare systems globally to improve treatment access.
+  - type: Integrations
+    url: https://www.amgen.com/partners
+integrations:
+  - name: Academic Collaborations
+  - name: Suppliers
+  - name: Wholesalers
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
