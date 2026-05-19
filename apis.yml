@@ -38,6 +38,8 @@ apis:
       for patients with serious illnesses. The company does not currently publish a public
       developer API.
 common:
+  - type: GitHubOrganization
+    url: https://github.com/Amgen
   - type: Portal
     url: https://www.amgen.com
   - type: Blog
