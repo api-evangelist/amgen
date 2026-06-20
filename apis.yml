@@ -7,7 +7,7 @@ description: >-
   As a pioneer in biotechnology since 1980, Amgen uses living cells to make biologic medicines
   addressing cardiovascular metabolic conditions, oncology, inflammation, rare diseases, and bone health,
   operating in approximately 100 countries worldwide.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Biotechnology
   - Biopharmaceutical
@@ -28,7 +28,7 @@ apis:
       - Biotechnology
       - Biopharmaceutical
       - Life Sciences
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://www.amgen.com
     humanURL: https://www.amgen.com
     properties:
