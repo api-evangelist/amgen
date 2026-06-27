@@ -3,19 +3,12 @@
   "feeds": [
     {
       "source": "https://www.amgen.com/stories",
-      "feed_url": "https://www.amgen.com/stories",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://www.amgen.com",
-      "feed_url": "https://www.amgen.com",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "feed_url": "",
+      "saved": 1,
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 5,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 12,
+  "fetched": "2026-06-27T12:23:03Z",
+  "agent_pulled": "2026-06-27"
 }
