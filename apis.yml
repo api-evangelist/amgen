@@ -7,6 +7,17 @@ description: >-
   As a pioneer in biotechnology since 1980, Amgen uses living cells to make biologic medicines
   addressing cardiovascular metabolic conditions, oncology, inflammation, rare diseases, and bone health,
   operating in approximately 100 countries worldwide.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
