@@ -1,0 +1,133 @@
+specification: API Commons Well-Known
+specificationVersion: '0.1'
+provider: Amgen
+providerId: amgen
+generated: '2026-09-02'
+method: probed
+source: >-
+  Live unauthenticated HTTP probes of the named /.well-known/ path list against every host
+  reachable from apis.yml (www.amgen.com) plus the Amgen-operated secondary hosts found in
+  the corporate sitemap. One attempt per URL, browser User-Agent, 10-15s ceiling.
+description: >-
+  Amgen serves no /.well-known/ discovery document on any host probed. The corporate origin
+  (www.amgen.com) answers 403 from its edge for every path under /.well-known/ — an edge
+  policy that blocks the dotted directory outright rather than a per-document decision — and
+  404s for /llms.txt and /openapi.json. Two Amgen brand sites (amgenbiosimilars.com,
+  amgenscience.com) answer 200 for EVERY path with a byte-identical single-page-app shell,
+  which is a soft-404 and NOT a document. No WellKnown or SecurityTxt pointer is emitted:
+  nothing returned a real document.
+notes: >-
+  No pointer emitted by design. Every row below is a recorded absence, which is valid
+  measurement — it is what lets a later sweep show movement rather than starting over.
+hosts:
+  - host: www.amgen.com
+    note: >-
+      Corporate origin, the only host named in apis.yml. Edge returns 403 for the whole
+      /.well-known/ directory; ordinary paths on the same host serve normally (robots.txt 200,
+      sitemap.xml 200), so this is a blanket dotted-directory block, not a bot challenge.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/aauth-resource.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+      - path: /.well-known/mcp.json
+        status: 403
+        file: null
+  - host: www.amgenbiosimilars.com
+    note: >-
+      Amgen biosimilars brand site. Answers 200 with a byte-identical 190,789-byte SPA shell
+      for every path probed, including /openapi.json — a soft-404 catch-all, treated as a miss.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+  - host: www.amgenscience.com
+    note: >-
+      Amgen science brand site. Same soft-404 catch-all behaviour (168,963 bytes for every path).
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        result: soft-404 (SPA shell, not a document)
+  - host: www.amgentrials.com
+    note: Amgen clinical trials site. Honest 404s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+  - host: www.amgensupportplus.com
+    note: Amgen patient-support site. Edge 403 on /.well-known/, 404 on ordinary discovery paths.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+  - host: api.amgen.com
+    note: >-
+      Resolves (138.133.52.110) but does not complete an HTTPS request from here — curl exits
+      with status 000 on every path. The one partial response captured was a Salesforce
+      Commerce Cloud storefront for an unrelated tenant (Sites-aosmith-Site), so this hostname
+      is a shared commerce edge, NOT an Amgen API host. Nothing was saved or derived from it.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 0
+        file: null
+        result: no response (connection did not complete)
+      - path: /.well-known/agent-card.json
+        status: 0
+        file: null
+        result: no response (connection did not complete)
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

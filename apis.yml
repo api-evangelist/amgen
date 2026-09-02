@@ -52,7 +52,7 @@ tags_raw:
   - Life Sciences
   - Fortune 500
 created: '2024-01-01'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
 apis:
   - aid: amgen:website
@@ -72,11 +72,15 @@ apis:
       for patients with serious illnesses. The company does not currently publish a public
       developer API.
 common:
+  - type: Packages
+    url: packages/amgen-packages.yml
+  - type: LLMsTxt
+    url: llms/amgen-llms.txt
   - type: DomainSecurity
     url: security/amgen-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/Amgen
-  - type: Portal
+  - type: Website
     url: https://www.amgen.com
   - type: Blog
     url: https://www.amgen.com/stories
@@ -85,7 +89,7 @@ common:
   - type: TermsOfService
     url: https://www.amgen.com/terms-of-use
   - type: Support
-    url: https://www.amgen.com/contact-amgen
+    url: https://www.amgen.com/contact-us
   - type: LinkedIn
     url: https://www.linkedin.com/company/amgen
   - type: X
@@ -141,3 +145,28 @@ integrations:
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Amgen manufactures biologic medicines, not software: its full 2,773-URL corporate sitemap
+    contains no developer, API or documentation section, /developers and /openapi.json both
+    404, the whole /.well-known/ directory is 403 at the edge, and api.amgen.com resolves only
+    to a shared Salesforce Commerce Cloud host serving an unrelated tenant.
+  evidence:
+    - url: https://www.amgen.com/sitemap.xml
+      status: 200
+    - url: https://www.amgen.com/developers
+      status: 404
+    - url: https://www.amgen.com/openapi.json
+      status: 404
+    - url: https://www.amgen.com/.well-known/api-catalog
+      status: 403
+    - url: https://www.amgen.com/graphql
+      status: 403
+  checked: '2026-09-02'

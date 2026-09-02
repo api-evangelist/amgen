@@ -1,0 +1,50 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: Amgen
+providerId: amgen
+generated: '2026-09-02'
+method: searched
+source: >-
+  npm registry search, PyPI JSON API, crates.io search, and the Amgen GitHub organization
+  (https://github.com/Amgen, 2 public repositories) probed 2026-09-02.
+description: >-
+  Amgen publishes no API client library, because it publishes no API. It does publish one
+  first-party open-source Python library — GUMPS, a scientific modeling platform — as source
+  on GitHub only. GUMPS is recorded here because it is genuinely Amgen-authored software,
+  but it is NOT an SDK for an Amgen API and no SDKs pointer is emitted on its account.
+registries_probed:
+  - registry: npm
+    query: amgen
+    result: no first-party package (the `amgen` name is an unrelated Chinese code generator)
+  - registry: pypi
+    query: amgen, gumps, amgen-gumps
+    result: 404 on all three — GUMPS is not distributed through PyPI
+  - registry: crates.io
+    query: amgen
+    result: no first-party crate
+  - registry: github
+    query: github.com/Amgen
+    result: 2 public repositories — GUMPS (below) and a fork of grafana-helm-charts
+packages:
+  - language: python
+    registry: github
+    name: gumps
+    url: https://github.com/Amgen/GUMPS
+    install: "git clone https://github.com/Amgen/GUMPS && python setup.py sdist bdist_wheel"
+    official: true
+    api_client: false
+    license: BSD-3-Clause
+    version: 3.1.3
+    published: '2024-05-30'
+    note: >-
+      Generic Universal Modeling Platform Software — Amgen's open-source computational
+      modeling / regressor pipeline library. Version read from setup.py in the default branch;
+      there is no registry release, so `published` is the last push to the repository carrying
+      that version (RELEASENOTES.txt is undated). Source distribution only: a consumer must
+      clone and build, and cannot pin a released artifact. Last activity 2024-05-30, which is
+      the currency signal for this package.
+sdk_count: 0
+package_count: 1
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

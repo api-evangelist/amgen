@@ -4,34 +4,32 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amgen
 providerId: amgen
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+reconciled: true
 tags:
   - Biotechnology
   - Biopharmaceutical
   - Rate Limiting
 description: >-
-  Amgen does not publish public API rate-limit documentation. Any partner
-  integrations are governed by bilateral SLAs rather than a public per-key
-  throttling contract.
+  Amgen documents no API rate limits, because it publishes no API. There is no developer
+  portal, no API reference, and therefore no published window, quota, burst allowance,
+  X-RateLimit-*/RateLimit-* response header or 429 contract to record.
 notes: >-
-  No public rate-limit documentation.
+  limit_count is 0 and limits[] is deliberately empty. A prior bulk sweep (2026-05-04) carried
+  a single placeholder row reading "see provider; not publicly documented"; that row described
+  an absence but scored as a documented rate-limit signal, so it was removed on 2026-09-02.
 sources:
-  - https://www.amgen.com
+  - url: https://www.amgen.com/sitemap.xml
+    status: 200
+    note: 2,773 URLs, no developer or API reference section
+  - url: https://www.amgen.com/developers
+    status: 404
+limit_count: 0
 responseCodes: {}
-limits:
-  - name: No Public Rate Limit Documentation
-    scope: account
-    metric: varies
-    limit: 'see provider; not publicly documented'
-policies:
-  - name: Bilateral SLA
-    description: >-
-      Throughput and retry semantics are defined by the partner-specific
-      agreement.
+limits: []
+policies: []
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com

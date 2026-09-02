@@ -4,49 +4,33 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amgen
 providerId: amgen
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+reconciled: true
 tags:
   - Biotechnology
   - Biopharmaceutical
   - Healthcare
 description: >-
-  Amgen does not publish a public developer API or pricing catalog. Therapeutic
-  product pricing is regulated by national payers and Medicaid/Medicare in the
-  US and is outside the scope of an API plan tier. There is no free quota,
-  metered request price, or developer SKU to reconcile.
+  Amgen publishes no API plans, because it publishes no API. A 2026-09-02 pass over the full
+  amgen.com sitemap (2,773 URLs) found no developer, pricing or plans page of any kind, and
+  https://www.amgen.com/developers returns 404. Therapeutic product pricing is set through
+  payers and national reimbursement systems and is not an API plan.
 notes: >-
-  Amgen is a biopharmaceutical manufacturer; pricing data on its therapies is
-  not an API plan. If Amgen launches a public developer program (clinical
-  trials, real-world evidence, supply chain), replace this scaffold with
-  reconciled tier data.
+  plan_count is 0 and plans[] is deliberately empty. A prior bulk sweep (2026-05-04) carried a
+  single placeholder tier named "No Public API Program"; that entry described an absence but
+  counted as a published plan, so it was removed on 2026-09-02. If Amgen launches a developer
+  program (clinical trial data, real-world evidence, supply chain), replace this with the real
+  tiers.
 sources:
-  - https://www.amgen.com
-plans:
-  - id: amgen-no-public-api
-    name: No Public API Program
-    type: enterprise
-    description: >-
-      Placeholder entry. Amgen does not publish developer API tiers. Any
-      partner data exchange (clinical, supply chain, pharmacovigilance) is
-      handled bilaterally.
-    entries:
-      - label: Access
-        description: Bilateral / partner-only
-        name: access
-        type: flat
-        metric: varies
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: 'contact provider'
-        userMultiplied: false
-    elements:
-      - name: Bilateral Partner Agreement
+  - url: https://www.amgen.com/sitemap.xml
+    status: 200
+    note: 2,773 URLs, no developer or pricing section
+  - url: https://www.amgen.com/developers
+    status: 404
+plan_count: 0
+plans: []
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
