@@ -1,7 +1,9 @@
 ---
 title: AI in Research & Development | Amgen
 url: https://www.amgen.com/science/research-and-development-strategy/ai-in-research-and-development
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amgen" press release artificial intelligence'
 position: 1
 source: serpapi-google

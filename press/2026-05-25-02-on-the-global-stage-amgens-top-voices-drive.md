@@ -1,7 +1,9 @@
 ---
 title: 'On the Global Stage: Amgen''s Top Voices Drive ...'
 url: https://www.amgen.com/stories/2025/05/on-the-global-stage-amgens-top-voices-drive-conversations-on-ai-and-innovation
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amgen" press release artificial intelligence'
 position: 2
 source: serpapi-google

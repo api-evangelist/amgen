@@ -1,7 +1,9 @@
 ---
 title: AMGEN ANNOUNCES RETIREMENT OF DAVID M. ...
 url: https://www.prnewswire.com/news-releases/amgen-announces-retirement-of-david-m-reese-executive-vice-president-and-chief-technology-officer-302750791.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amgen" press release artificial intelligence'
 position: 4
 source: serpapi-google

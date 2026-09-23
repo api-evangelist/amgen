@@ -1,7 +1,9 @@
 ---
 title: 'Enhanced Patient-Centricity: How the Biopharmaceutical ...'
 url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9602573/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amgen" press release artificial intelligence'
 position: 5
 source: serpapi-google
