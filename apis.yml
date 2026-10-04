@@ -62,7 +62,6 @@ apis:
       - Biopharmaceutical
       - Life Sciences
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://www.amgen.com
     humanURL: https://www.amgen.com
     properties:
       - type: Website
