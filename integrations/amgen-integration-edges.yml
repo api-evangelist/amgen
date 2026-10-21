@@ -1,0 +1,158 @@
+edges:
+- partner_name: FDA Drugs@FDA (approved drug and biologic applications)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=103951
+  category: FDA drug / biologic application holder
+  contract_reference:
+    register: Drugs@FDA (openFDA drug/drugsfda; application holder = sponsor_name)
+    standard: FDA drug / biologic marketing application (21 CFR 314 / 601)
+    spec_file: null
+    role: fda-application-holder
+    registered_name: AMGEN
+    matched_domain: amgen.com
+    matched_by: domain
+    certified_products:
+    - product: Biologics License Application (approved) (Drugs@FDA)
+      product_type: BLA
+      lapsed: false
+      products_sample:
+      - AIMOVIG
+      - AMJEVITA
+      - ARANESP
+      - AVSOLA
+      - BKEMV
+      - BLINCYTO
+    - product: New Drug Application (approved) (Drugs@FDA)
+      product_type: NDA
+      lapsed: false
+      products_sample:
+      - CORLANOR
+      - LUMAKRAS
+      - OTEZLA
+      - OTEZLA XR
+      - SENSIPAR
+    applications_sample:
+    - BLA103234
+    - BLA103353
+    - BLA103951
+    - BLA125031
+    - BLA125147
+    signal_note: certified_products = one entry per application TYPE (NDA / ANDA / BLA), never per application;
+      lapsed when every product under the type is Discontinued. Applications are context, never counted
+    detected_by: sweep-clinical-trial-sponsors.py
+    detected: '2026-10-21'
+    identity: wikidata Q470517 'Amgen' P856 http://www.amgen.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+    other_registrations:
+    - AMGEN INC
+  detected_by: sweep-clinical-trial-sponsors.py
+  first_seen: '2026-10-21'
+- partner_name: ClinicalTrials.gov (industry trial sponsors and collaborators)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://clinicaltrials.gov/study/NCT07223190
+  category: Interventional trial sponsor / collaborator
+  contract_reference:
+    register: ClinicalTrials.gov API v2 (interventional, started >= 2021-01-01, industry lead sponsor or collaborator)
+    standard: null
+    spec_file: null
+    role: trial-collaborator+lead-sponsor
+    registered_name: Amgen
+    matched_domain: amgen.com
+    matched_by: domain
+    lead_sponsor: true
+    active_trial: true
+    latest_start: '2028-06-30'
+    trials_sample:
+    - NCT07223190
+    - NCT07803679
+    - NCT07178912
+    - NCT07301424
+    - NCT07637513
+    signal_note: 'PARTICIPATION only (a trial is not an approval): lead_sponsor, active_trial and latest_start are
+      per-edge signals; the number of trials is never counted'
+    detected_by: sweep-clinical-trial-sponsors.py
+    detected: '2026-10-21'
+    identity: wikidata Q470517 'Amgen' P856 http://www.amgen.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-clinical-trial-sponsors.py
+  first_seen: '2026-10-21'
+- partner_name: EU CTIS (clinical trial sponsors)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://euclinicaltrials.eu/ctis-public/view/2026-525408-82-00
+  category: EU clinical trial sponsor
+  contract_reference:
+    register: EU Clinical Trials Information System public search (euclinicaltrials.eu, sponsorType 'Pharmaceutical
+      company')
+    standard: null
+    spec_file: null
+    role: eu-trial-sponsor
+    registered_name: Amgen Inc.
+    matched_domain: amgen.com
+    matched_by: domain
+    trials_sample:
+    - 2026-525408-82-00
+    - 2025-524788-19-00
+    - 2025-522393-37-00
+    - 2026-525489-23-00
+    - 2025-523500-72-00
+    signal_note: 'PARTICIPATION only: a CTIS sponsor listing; the number of trials is never counted'
+    detected_by: sweep-clinical-trial-sponsors.py
+    detected: '2026-10-21'
+    identity: wikidata Q470517 'Amgen' P856 http://www.amgen.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-clinical-trial-sponsors.py
+  first_seen: '2026-10-21'
+- partner_name: CDISC (members)
+  partner: cdisc
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  partner_tier: 20+ Years
+  evidence: https://www.cdisc.org/company/amgen-0
+  category: Clinical data standards member
+  contract_reference:
+    register: CDISC member search (cdisc.org/members/search + public company page website)
+    standard: CDISC clinical data standards (SDTM / ADaM / CDASH / ODM)
+    spec_file: null
+    role: cdisc-member
+    registered_name: Amgen
+    register_id: amgen-0
+    member_industry: BioTech
+    listed_website: http://www.amgen.com/
+    matched_domain: amgen.com
+    matched_by: domain
+    signal_note: 'self-filed paid membership: listing alone = standard-participant (standards adopter); partner_tier
+      is the membership level, never weighted as a tier; hand-reviewed'
+    detected_by: sweep-clinical-trial-sponsors.py
+    detected: '2026-10-21'
+  detected_by: sweep-clinical-trial-sponsors.py
+  first_seen: '2026-10-21'
+generated: '2026-10-21'
+method: searched
+source:
+- https://clinicaltrials.gov/api/v2/studies
+- https://api.fda.gov/drug/drugsfda.json
+- https://euclinicaltrials.eu/ctis-public/search
+- https://www.cdisc.org/members/search
+checked:
+- https://api.fda.gov/drug/drugsfda.json
+- https://clinicaltrials.gov/api/v2/studies
+- https://euclinicaltrials.eu/ctis-public/search
+- https://www.cdisc.org/members/search
